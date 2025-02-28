@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'animations';
+
+.canvas {
+    overflow-y: scroll;
+}
+
+.tiptap {
+    border: 1px solid rgba(black, 0.2);
+    width: 900px;
+    height: 1800px;
+    padding: 1rem 1rem;
+    page-break-after: auto;
+    overflow: hidden;
+    animation: fade-in 0.7s ease-in-out;
+}
+
+.canvas>div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.sidebar {
+    display: flex;
+    padding: 0.5rem 0.5rem;
+    background-color: $light-gray;
+    animation: fade-in 0.7s;
+
+    &__tags-cont {
+        padding: 0.5rem 1rem;
+        position: relative;
+
+        &:not(:last-child)::after {
+            content: '';
+            height: 2.3rem;
+            width: 0.1rem;
+            background-color: rgba(black, 0.15);
+            position: absolute;
+            right: 0;
+            top: 0.9rem;
+        }
+    }
+
+    &__is-active {
+        background: rgba($teal, 0.2);
+    }
+
+    &__tag {
+        margin: 0 0.15rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 0.5rem;
+        transition: all $time;
+    
+        &:hover {
+            background-color: rgba($mid-gray, 0.1);
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .sidebar {
+        &__tag {
+            font-size: 1.2rem;
+        }
+    }
+    .tiptap {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .sidebar {
+        &__tag {
+            font-size: 0.8rem;
+        }
+    }
+}

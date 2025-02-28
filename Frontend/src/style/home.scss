@@ -1,0 +1,159 @@
+@import 'variables';
+@import 'reset';
+@import 'animations.scss';
+
+.home {
+    height: calc(100vh - 70px);
+    background-color: $white;
+}
+
+.home-info-cont {
+    height: 70rem;
+    display: flex;
+    animation: fade-in 0.5s ease;
+}
+
+.home-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30rem;
+    
+    &__btn-cont {
+        display: flex;
+    }
+
+    &__btn {
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        background-color: $yellow;
+        transition: all $time;
+    }
+
+    &__btn:hover {
+        background-color: rgba($yellow, 0.7);
+    }
+
+    &__img-cont {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-top: 5rem;
+    }
+
+    &__img {
+        object-fit: cover;
+        width: 72%;
+        height: 80%;
+        border-radius: 2rem;
+    }
+}
+
+.title {
+    color: $header-color;
+    font-size: 5rem;
+    letter-spacing: -2px;
+    margin: none;
+    padding: none;
+    font-weight: bold;
+    margin-top: 10rem;
+}
+
+.description {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.disclaimer {
+    height: 10rem;
+    background-color: $header-color;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100vh - 7rem - 10rem - 70rem);
+    margin-right: 2rem;
+
+    &__btn {
+        padding: 0.6rem 0.6rem;
+        background-color: $header-color;
+        border-radius: 10px;
+        transition: all $time;
+    }
+
+    &__btn:hover {
+        background-color: $hover-btn;
+    }
+
+    &__text {
+        text-decoration: none;
+        color: $white;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .home-info {
+        padding-left: 15rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .home-info {
+        padding-left: 12rem;
+    }
+    .home-info__img{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .home-info {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+    .disclaimer {
+        padding: 0 3rem;
+        text-align: center;
+    }
+    .home-info-cont {
+        padding-left: 0rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .home-info {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+
+    .disclaimer{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .home-info {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+
+    .disclaimer {
+        font-size: 1.2rem;
+    }
+}

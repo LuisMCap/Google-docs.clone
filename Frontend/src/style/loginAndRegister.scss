@@ -1,0 +1,134 @@
+@import 'variables.scss';
+@import 'animations.scss';
+
+.login-form {
+    width: fit-content;
+    height: fit-content;
+    padding-bottom: 3.5rem;
+    background-color: $header-color;
+    border-radius: 2rem;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade-in 0.4s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.modal-btn {
+    color: $white;
+    border-radius: 500px;
+    transition: all $time;
+
+    &:hover {
+        background-color: $header-color-transparent;
+    }
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.form-cont {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.log-form {
+    display: flex;
+    flex-direction: column;
+    width: 120%;
+    color: $white;
+    padding-right: 6rem;
+    padding-left: 6rem;
+
+    &__label {
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    &__input {
+        margin-bottom: 2rem;
+        border-radius: 0.3rem;
+        border: rgba($white, 0.2) 1px solid;
+        font-weight: 100;
+        font-size: 1.5rem;
+        height: 3rem;
+        padding-left: 0.5rem;
+    }
+
+    &__btn {
+        margin-top: 0.2rem;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        border-radius: 500px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 0.4rem 0;
+        transition: all $time;
+    }
+
+    &__btn:hover {
+        background-color: rgba($white, 0.9);
+    }
+
+    &__account {
+        margin-top: 1.5rem;
+        font-weight: 100;
+        color: rgba($white, 0.4);
+        font-size: 1.4rem;
+    }
+
+    &__alternative {
+        text-decoration: none;
+        color: rgba($yellow, 0.9);
+        animation: all $time;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.form-error {
+    margin-top: 1.2rem;
+    color: red;
+    font-weight: 100;
+    font-size: 1.3rem;
+    animation: fade-in $time ease;
+}
+
+.form-error-green {
+    color: $teal;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+    .modal-title {
+        font-size: 3rem;
+    }
+
+    .log-form {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        &__label{
+            font-size: 1.3rem;
+        }
+    }
+}

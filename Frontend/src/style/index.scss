@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap');
+@import 'variables';
+@import 'utility.scss';
+@import 'header';
+@import 'home';
+@import 'tiptap.scss';
+@import 'loginAndRegister.scss';
+@import 'documents.scss';
+@import 'reset.scss';
+@import 'about.scss';
+
+
+:root {
+  font-family: 'Manrope', sans-serif;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+button {
+  background-color: initial;
+  border: initial;
+  font-family: inherit;
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-color;
+  border-radius: 4rem;
+}

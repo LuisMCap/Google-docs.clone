@@ -1,0 +1,69 @@
+.modal {
+    &__bg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(black, 0.5);
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    &__cont {
+        width: 20.8%;
+        height: 40rem;
+        background-color: $header-color;
+        border-radius: 2rem;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        animation: fade-in 0.4s ease;
+        align-items: center;
+    }
+
+    &__close {
+        color: $white;
+        padding: 1rem 1.5rem;
+        border-radius: 500px;
+        transition: all $time;
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+        align-self: flex-start;
+
+        &:hover {
+            background-color: $header-color-transparent;
+        }
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 200;
+        position: relative;
+    }
+}
+
+.emphasize {
+    font-weight: 800;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        &__title{
+            font-size: 2.5rem;
+        }
+    }
+}

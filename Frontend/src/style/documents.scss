@@ -1,0 +1,345 @@
+@import 'variables.scss';
+@import 'animations.scss';
+$section-width: 80%;
+$font-size-title: 4rem;
+
+.documents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+
+    &__title {
+        width: $section-width;
+        margin-top: 2rem;
+        font-size: $font-size-title;
+        text-transform: uppercase;
+        font-weight: 400;
+        position: relative;
+        margin-bottom: 5rem;
+    }
+
+    &__title::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        color: $header-color;
+        height: 0.15rem;
+        left: 0;
+        right: 0;
+        bottom: -1.5rem;
+        background-color: rgba($header-color, 0.25);
+    }
+
+    &__cont {
+        width: $section-width;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__error {
+        padding-top: 2rem;
+        font-size: 2rem;
+        font-weight: 100;
+    }
+
+    &__alternative {
+        font-weight: 400;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+// DOCUMENT
+
+.document {
+    width: fit-content;
+    padding-right: 20rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &__title {
+        font-size: 2rem;
+        padding-top: 0.5rem;
+        position: relative;
+        margin-bottom: 1.5rem;
+        width: 90%;
+    }
+
+    &__title::after {
+        content: '';
+        position: absolute;
+        width: 150%;
+        color: $header-color;
+        height: 0.15rem;
+        left: 0;
+        right: 0;
+        bottom: -0.7rem;
+        background-color: rgba($header-color, 0.25);
+    }
+
+    &__footer {
+        display: flex;
+        width: 90%;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    &__btn {
+        font-size: 1.3rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: $yellow;
+        cursor: pointer;
+        color: black;
+        transition: all $time;
+        text-decoration: none;
+    }
+
+    &__btn:nth-child(1) {
+        margin-right: auto;
+    }
+
+    &__btn:hover {
+        background-color: rgba($yellow, 0.8);
+    }
+
+}
+
+.document:nth-child(even) {
+    .document__footer {
+        .document__btn {
+            background-color: $header-color;
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $hover-btn;
+            }
+        }
+
+    }
+}
+
+// TOOLTIP
+
+.document {
+    &__tooltip {
+        position: relative;
+    }
+
+    &__tooltip-text {
+        font-size: 1.2rem;
+        visibility: hidden;
+        width: 15rem;
+        background-color: $header-color;
+        color: #fff;
+        text-align: center;
+        border-radius: 0.6rem;
+        padding: 0.5rem 0;
+        position: absolute;
+        bottom: -125%;
+        left: 50%;
+        margin-left: -7.5rem;
+        opacity: 0;
+        transition: all $time;
+    }
+
+    &__tooltip-text::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent $header-color transparent;
+    }
+
+    &__tooltip:hover &__tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.collaborate {
+    width: fit-content;
+
+    &__body {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2.8rem;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 0 3rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(white, 0.2);
+            height: 0.1rem;
+            width: 85%;
+            left: 50%;
+            top: 125%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__input {
+        font-size: 1.3rem;
+        border: rgba($header-color, 0.25) solid 1px;
+        border-radius: 0.6rem;
+        background-color: #fff;
+        height: 1.8rem;
+        padding-left: 0.6rem;
+        flex-grow: 1;
+        color: $header-color;
+    }
+
+    &__result {
+        font-size: 1.2rem;
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+&__friends-cont {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+    &__friends, &__pending {
+        display: flex;
+    }
+
+    &__pending {
+        color: rgba($white, 0.5)
+    }
+
+    &__name {
+        margin-right: auto;
+    }
+
+    &__status {}
+
+    &__btn {
+        font-size: 1.2rem;
+        height: none;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        padding: 0.1rem 0.7rem;
+        color: $white;
+        background-color: $yellow;
+        color: $header-color;
+        font-weight: 400;
+        transition: all $time;
+
+        &:hover {
+            background-color: rgba($yellow, 0.8);
+        }
+    }
+}
+
+// CreateDocument.js
+.create-document {
+    height: fit-content;
+    width: fit-content;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+
+    &__form {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        position: relative;
+        width: 85%;
+    }
+
+    &__input {
+        font-size: 1.3rem;
+        border: rgba($header-color, 0.25) solid 1px;
+        border-radius: 0.6rem;
+        background-color: #fff;
+        height: 1.8rem;
+        padding-left: 0.6rem;
+        flex-grow: 1;
+        color: $header-color
+    }
+
+    &__btn {
+        font-size: 1.2rem;
+        height: none;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        color: $white;
+        background-color: $yellow;
+        color: $header-color;
+        font-weight: 400;
+        transition: all $time;
+
+        &:hover {
+            background-color: rgba($yellow, 0.8);
+        }
+    }
+
+    &__result {
+        font-size: 1.2rem;
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .documents {
+        &__error {
+            font-size: 1.7rem;
+            padding-right: 2rem;
+            padding-left: 2rem;
+            text-align: center;
+        }
+    }
+    .collaborate {
+        margin: 0 2rem
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .document {
+        padding-right: 10rem;
+    }
+    .documents {
+        &__title{
+            font-size: 3.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .document {
+        font-size: 1.5rem;
+
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__btn {
+            font-size: 1rem;
+        }
+    }
+}
+
