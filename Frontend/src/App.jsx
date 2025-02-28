@@ -5,6 +5,7 @@ import { ACCESS_TOKEN } from "./constants";
 import { jwtDecode } from "jwt-decode";
 import io from "socket.io-client";
 const SOCKET_API = import.meta.env.VITE_SOCKET_URL
+console.log(SOCKET_API)
 
 const socket = io(SOCKET_API);
 export const AppContext = createContext({});
