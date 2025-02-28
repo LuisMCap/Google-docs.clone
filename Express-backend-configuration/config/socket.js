@@ -1,6 +1,6 @@
 const Documents = require("../models/document");
 const { createServer } = require("node:http");
-const PORT = process.env.PORT || 4000;
+const { PORT = 3000 } = process.env
 
 const { Server } = require("socket.io");
 let clients = {}
