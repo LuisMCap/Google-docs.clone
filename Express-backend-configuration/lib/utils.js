@@ -6,7 +6,7 @@ const jose = require("jose");
 
 const pathToKey = path.join(__dirname, "..", "id_rsa_priv.pem");
 const pathToPub = path.join(__dirname, "..", "id_rsa_pub.pem");
-const PRIV_KEY = fs.readFileSync(pathToKey, "utf8");
+const PRIV_KEY = process.env.PRIVATE_KEY.replace(/\\n/g, "\n");
 const PUB_KEY = fs.readFileSync(pathToPub, "utf8");
 
 function validPassword(password, hash, salt) {
