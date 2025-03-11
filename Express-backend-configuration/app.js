@@ -15,11 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:4173",
-      "https://google-docs-clone-xi-six.vercel.app/",
-    ],
+    // origin: [
+    //   "http://localhost:5173",
+    //   "http://localhost:4173",
+    //   "https://google-docs-clone-xi-six.vercel.app",
+    // ],
     credentials: true,
   })
 );
