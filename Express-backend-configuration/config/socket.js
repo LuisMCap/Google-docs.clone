@@ -27,9 +27,7 @@ const SocketConnection = (io) => {
     socket.on("disconnect", () => {
       console.log("Client disconnected");
       for (const userId in clients) {
-        console.log(userId);
         if (clients[userId] === socket.id) {
-          console.log("deleted");
           delete clients[userId];
           break;
         }
@@ -38,4 +36,11 @@ const SocketConnection = (io) => {
   });
 };
 
-module.exports = { SocketConnection };
+const sendNotification = (userId, message, io, clients) => {
+  const socketId = clients[userId];
+  if (socketId) {
+    io.to(socketId).emit("notification", message);
+  }
+};
+
+module.exports = { SocketConnection, sendNotification, clients };

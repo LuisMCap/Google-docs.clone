@@ -4,10 +4,10 @@ import Header from "./pages/Header";
 import { ACCESS_TOKEN } from "./constants";
 import { jwtDecode } from "jwt-decode";
 import io from "socket.io-client";
-const SOCKET_API = import.meta.env.VITE_SOCKET_URL
-console.log(SOCKET_API)
+const API_URL = import.meta.env.VITE_API_URL;
+console.log(API_URL);
 
-const socket = io(SOCKET_API);
+const socket = io(API_URL);
 export const AppContext = createContext({});
 
 function App() {

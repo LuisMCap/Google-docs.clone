@@ -2,7 +2,9 @@ const User = require("../models/user");
 const passport = require("passport");
 const Documents = require("../models/document");
 const Collaborate = require("../models/collaborate");
-const sendNotification = require('../config/socket').sendNotification
+const { sendNotification } = require("../config/socket").sendNotification;
+const { io } = require('../bin/www')
+const { clients } = require("../config/socket").clients
 
 exports.document_create = [
   passport.authenticate("jwt", { session: false }),
@@ -138,7 +140,7 @@ exports.document_send_invite = [
       // Add document to user's invite array
       userToBeAdded.invites.push(document);
       await userToBeAdded.save();
-      sendNotification(userToBeAddedID, {type: 'Invite'});
+      sendNotification(userToBeAddedID, {type: 'Invite'}, io, clients);
       res.status(200).send({ success: true, msg: "Invite sent" });
     } catch (err) {
       console.log(err);
@@ -222,7 +224,7 @@ exports.document_delete_coll = [
       );
       const newUser = await User.findById(userIDToBeDeleted);
       if (userToBeRemovedInvite.modifiedCount >= 1) {
-        sendNotification(userIDToBeDeleted, { type: "Invite" });
+        sendNotification(userIDToBeDeleted, { type: "Invite" }, io, clients);
         return res.status(202).send({ success: true, msg: "User deleted" });
       }
       throw new Error("There was an error with the request");
